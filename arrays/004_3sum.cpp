@@ -16,7 +16,7 @@ Move j or k based on sum.
 
 Avoid duplicates.
 
-Time Complexity: O(nlogn + n^2)
+Time Complexity: O(n^2)
 Space Complexity: O(1) extra
 */
 
