@@ -1,5 +1,8 @@
 /*
 Problem: Find Closest Number to Zero
+Link: https://leetcode.com/problems/find-closest-number-to-zero/
+Difficulty: Easy
+
 Idea:
 Compare absolute values.
 Smaller absolute value -> closer to 0
