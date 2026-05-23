@@ -30,4 +30,4 @@ class Solution{
         }
         return count <= 1; //if count is more than 1, it means the array is not sorted and rotated
     }
-}
+};
