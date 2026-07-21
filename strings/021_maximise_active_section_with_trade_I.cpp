@@ -43,28 +43,32 @@ public:
     int maxActiveSectionsAfterTrade(string s){
         int n= s.size();
 
-        int ans=0;
-        int preZeroes = INT_MIN;
-        int maxZeroes = 0;
+        int ans=0; // Count of existing 1's
+        int preZeroes = INT_MIN; // Length of the previous zero block
+        int maxZeroes = 0; //Maximum gain obtained so far
 
-        for(int i=0; i<n;){
-            int j=i;
+        for(int i=0; i<n;){ // Traverse the string block by block
+            int j=i; // Find the end of the current block of identical characters
 
-            while(j<n && s[j]==s[i]){
+            while(j<n && s[j]==s[i]){ // Move j to the end of the current block
                 j++;
             }
 
-            int blocklength = j-1;
+            int blocklength = j-i; // Length of the current block
 
+            // If the current block is a block of 1's, add its length to the count of existing 1's
             if(s[i] == '1'){
                 ans += blocklength;
             }
             else{
+                // If the current block is a block of 0's, calculate the gain obtained by merging it with the previous zero block
                 maxZeroes = max(maxZeroes, blocklength);
-                preZeroes = blocklength;
+                preZeroes = blocklength; // Update the length of the previous zero block
             }
-            i=j;
+
+            i=j; // Move to the next block
         }
+        // If there are no 1's in the string, we can flip one block of 0's to 1's, so the maximum gain is the length of the longest block of 0's
         return ans + maxZeroes;
     }
 };
